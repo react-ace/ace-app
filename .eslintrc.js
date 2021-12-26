@@ -1,11 +1,63 @@
+/* eslint-disable no-undef */
 module.exports = {
-  extends: 'erb',
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'airbnb-typescript',
+  ],
   rules: {
-    // A temporary hack related to IDE not resolving correct package.json
-    'import/no-extraneous-dependencies': 'off',
-    // Since React 17 and typescript 4.1 you can safely disable the rule
     'react/react-in-jsx-scope': 'off',
+    'import/no-extraneous-dependencies': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/no-var-requires': 'off',
+    'no-param-reassign': ['error', { props: false }],
+    // A temporary hack related to IDE not resolving correct package.json
+    '@typescript-eslint/no-empty-interface': 'off',
+    'react/no-unused-prop-types': 'off',
+    // '@typescript-eslint/no-explicit-any': 'off',
+    'operator-linebreak': ['error', 'after'],
+    'brace-style': ['error', '1tbs', { allowSingleLine: true }],
+    'implicit-arrow-linebreak': 'off',
+    'lines-between-class-members': 'off',
+    '@typescript-eslint/lines-between-class-members': ['off'],
+    'react/jsx-closing-bracket-location': [1, 'after-props'],
+    'object-curly-newline': ['error', { consistent: true }],
+    semi: ['error', 'always'],
+    quotes: ['error', 'single'],
+    indent: ['error', 2],
+    'linebreak-style': [2, 'unix'],
+    'no-console': [0],
+    'max-len': [1, 100],
+    'arrow-parens': ['error', 'as-needed'],
+    'import/order': 'off',
+    'prefer-const': 1,
+    // 'sort-imports': ['error', { ignoreDeclarationSort: true }],
+    'func-names': ['error', 'as-needed'],
+    // If production: replace below
+    '@typescript-eslint/no-unused-vars': 'off',
+    // 'arrow-body-style': ['warn', 'as-needed', { requireReturnForObjectLiteral: true }],
+    'arrow-body-style': 'off',
+    'import/no-duplicates': 'off',
+    'import/no-self-import': 'off',
+    'import/no-cycle': 'off',
+    'import/no-named-as-default': 'off',
+    'import/no-named-as-default-member': 'off',
+    'react/require-default-props': [0],
+    'react/jsx-one-expression-per-line': ['off'],
+    '@typescript-eslint/no-shadow': ['off'],
+    '@typescript-eslint/no-throw-literal': ['off'],
+    'import/extensions': 'off',
+    'no-trailing-spaces': [2, { skipBlankLines: false }],
+    'arrow-spacing': [2, { before: true, after: true }],
+    'import/no-dynamic-require': 0,
+    'global-require': 0,
+    'react/jsx-max-props-per-line': [0],
+    'react/jsx-first-prop-new-line': [0, 'multiline'],
+    'react/jsx-boolean-value': [2, 'always'],
+    'newline-per-chained-call': [0],
+    'react/jsx-props-no-spreading': 'off',
   },
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 2020,
     sourceType: 'module',
@@ -15,8 +67,11 @@ module.exports = {
   },
   settings: {
     'import/resolver': {
-      // See https://github.com/benmosher/eslint-plugin-import/issues/1396#issuecomment-575727774 for line below
-      node: {},
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+        paths: ['src/'],
+        cache: true,
+      },
       webpack: {
         config: require.resolve('./.erb/configs/webpack.config.eslint.ts'),
       },

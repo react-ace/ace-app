@@ -1,21 +1,14 @@
-/* eslint global-require: off, no-console: off, promise/always-return: off */
-
-/**
- * This module executes inside of electron's main process. You can start
- * electron renderer process from here and communicate with the other processes
- * through IPC.
- *
- * When running `npm run build` or `npm run build:main`, this file is compiled to
- * `./src/main.js` using webpack. This gives us some performance wins.
- */
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import path from 'path';
 import { app, BrowserWindow, shell, ipcMain } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
+
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
+
+const CFonts = require('cfonts');
 
 export default class AppUpdater {
   constructor() {
@@ -45,15 +38,29 @@ if (isDevelopment) {
   require('electron-debug')();
 }
 
+const output = () => {
+  CFonts.say('------ electron-react-ace ------', {
+    colors: ['magenta'],
+    font: 'console',
+    align: 'center',
+    // gradient: ['magenta', 'red'],
+    space: true,
+  });
+};
+
 const installExtensions = async () => {
   const installer = require('electron-devtools-installer');
   const forceDownload = !!process.env.UPGRADE_EXTENSIONS;
-  const extensions = ['REACT_DEVELOPER_TOOLS'];
+  const extensions = [
+    'REACT_DEVELOPER_TOOLS',
+    // 'MOBX_DEVTOOLS',
+    'APOLLO_DEVELOPER_TOOLS',
+  ];
 
   return installer
     .default(
-      extensions.map((name) => installer[name]),
-      forceDownload
+      extensions.map(name => installer[name]),
+      forceDownload,
     )
     .catch(console.log);
 };
@@ -63,9 +70,9 @@ const createWindow = async () => {
     await installExtensions();
   }
 
-  const RESOURCES_PATH = app.isPackaged
-    ? path.join(process.resourcesPath, 'assets')
-    : path.join(__dirname, '../../assets');
+  const RESOURCES_PATH = app.isPackaged ?
+    path.join(process.resourcesPath, 'assets') :
+    path.join(__dirname, '../../assets');
 
   const getAssetPath = (...paths: string[]): string => {
     return path.join(RESOURCES_PATH, ...paths);
@@ -78,6 +85,10 @@ const createWindow = async () => {
     icon: getAssetPath('icon.png'),
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
+      webSecurity: true,
+      nodeIntegration: true,
+      contextIsolation: true,
+      // sandbox: true,
     },
   });
 
@@ -106,6 +117,8 @@ const createWindow = async () => {
     event.preventDefault();
     shell.openExternal(url);
   });
+
+  output();
 
   // Remove this if your app does not use auto updates
   // eslint-disable-next-line

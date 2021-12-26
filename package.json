@@ -13,6 +13,7 @@
     "start:main": "cross-env NODE_ENV=development electron -r ts-node/register/transpile-only ./src/main/main.ts",
     "start:renderer": "cross-env NODE_ENV=development TS_NODE_TRANSPILE_ONLY=true webpack serve --config ./.erb/configs/webpack.config.renderer.dev.ts",
     "test": "jest",
+    "stylelint": "npx stylelint '**/*.{css,scss}'",
     "prepare": "husky install"
   },
   "lint-staged": {
@@ -20,7 +21,7 @@
       "cross-env NODE_ENV=development eslint --cache"
     ],
     "*.{css,scss}": [
-      "prettier --ignore-path .eslintignore --single-quote --write"
+      "npx stylelint '**/*.{css,scss}'"
     ]
   },
   "build": {
@@ -192,6 +193,9 @@
     "sass": "^1.43.4",
     "sass-loader": "^12.3.0",
     "style-loader": "^3.3.1",
+    "stylelint": "^14.2.0",
+    "stylelint-config-standard-scss": "^3.0.0",
+    "stylelint-scss": "^4.1.0",
     "terser-webpack-plugin": "^5.2.4",
     "ts-jest": "^27.0.7",
     "ts-loader": "^9.2.6",
@@ -205,6 +209,7 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+    "cfonts": "^2.10.0",
     "electron-debug": "^3.2.0",
     "electron-log": "^4.4.1",
     "electron-updater": "^4.6.4",
