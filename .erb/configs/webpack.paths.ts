@@ -20,6 +20,14 @@ const distAppPath = path.join(distPath, 'app');
 
 const buildPath = path.join(releasePath, 'build');
 
+const acePath = path.join(srcPath, 'ace');
+const aceComp = path.join(acePath, 'component');
+const aceCon = path.join(acePath, 'container');
+
+const subPath = path.join(srcPath, 'sub');
+const subComp = path.join(subPath, 'component');
+const subCon = path.join(subPath, 'container');
+
 export default {
   rootPath,
   dllPath,
@@ -35,4 +43,11 @@ export default {
   distMainPath,
   distAppPath,
   buildPath,
+  // submodule
+  acePath,
+  aceComp,
+  aceCon,
+  subPath,
+  subComp,
+  subCon,
 };

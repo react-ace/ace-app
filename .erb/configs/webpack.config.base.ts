@@ -34,6 +34,20 @@ const configuration: webpack.Configuration = {
   resolve: {
     extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
     modules: [webpackPaths.srcPath, 'node_modules'],
+    alias: {
+      '@': webpackPaths.rootPath,
+      '@root': webpackPaths.rootPath,
+      '@src': webpackPaths.srcPath,
+      '@app': webpackPaths.srcAppPath,
+      '@main': webpackPaths.srcMainPath,
+      // submodule
+      '@ace': webpackPaths.acePath,
+      '@aceComp': webpackPaths.aceComp,
+      '@aceCon': webpackPaths.aceCon,
+      '@sub': webpackPaths.subPath,
+      '@subComp': webpackPaths.subComp,
+      '@subCon': webpackPaths.subCon,
+    },
   },
 
   plugins: [

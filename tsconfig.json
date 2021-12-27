@@ -25,7 +25,22 @@
     "allowJs": true,
     "outDir": "release/app/dist",
     "experimentalDecorators": true,
+    "paths": {
+      "@/*": ["./*"],
+      "@root/*": ["./*"],
+      "@src/*": ["./src/*"],
+      "@app/*": ["./src/app/*"],
+      "@main/*": ["./src/main/*"],
+      // submodule
+      "@ace/*": ["./ace/*"],
+      "@aceComp/*": ["./ace/component/*"],
+      "@aceCon/*": ["./ace/container/*"],
+      "@sub/*": ["./sub/*"],
+      "@subComp/*": ["./sub/component/*"],
+      "@subCon/*": ["./sub/container/*"],
+    },
   },
+  "include": ["src", "ace", "sub"],
   "exclude": [
     "test",
     "release/build",
