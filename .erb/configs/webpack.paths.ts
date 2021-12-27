@@ -9,12 +9,12 @@ const srcMainPath = path.join(srcPath, 'main');
 const srcAppPath = path.join(srcPath, 'app');
 
 const releasePath = path.join(rootPath, 'release');
-const appPath = path.join(releasePath, 'app');
-const appPackagePath = path.join(appPath, 'package.json');
-const appNodeModulesPath = path.join(appPath, 'node_modules');
+const releaseAppPath = path.join(releasePath, 'app');
+const appPackagePath = path.join(releaseAppPath, 'package.json');
+const appNodeModulesPath = path.join(releaseAppPath, 'node_modules');
 const srcNodeModulesPath = path.join(srcPath, 'node_modules');
 
-const distPath = path.join(appPath, 'dist');
+const distPath = path.join(releaseAppPath, 'dist');
 const distMainPath = path.join(distPath, 'main');
 const distAppPath = path.join(distPath, 'app');
 
@@ -27,7 +27,7 @@ export default {
   srcMainPath,
   srcAppPath,
   releasePath,
-  appPath,
+  releaseAppPath,
   appPackagePath,
   appNodeModulesPath,
   srcNodeModulesPath,

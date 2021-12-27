@@ -15,7 +15,7 @@ if (
       ? electronRebuildCmd.replace(/\//g, '\\')
       : electronRebuildCmd;
   execSync(cmd, {
-    cwd: webpackPaths.appPath,
+    cwd: webpackPaths.releaseAppPath,
     stdio: 'inherit',
   });
 }

@@ -25,7 +25,22 @@ To package apps for the local platform:
 npm run package
 ```
 
-
 ## License
 
 MIT © [electron-react-ace-app](https://github.com/ace-app)
+
+-----
+
+## Develop
+
+* `.npmrc` backup
+
+```
+registry=https://registry.npm.taobao.org/
+sass_binary_site=https://npm.taobao.org/mirrors/node-sass/
+chromedriver_cdnurl=https://npm.taobao.org/mirrors/chromedriver
+phantomjs_cdnurl=https://npm.taobao.org/mirrors/phantomjs
+electron_mirror=https://npm.taobao.org/mirrors/electron/
+fsevents_binary_host_mirror=http://npm.taobao.org/mirrors/fsevents/
+
+```
