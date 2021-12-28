@@ -1,6 +1,7 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 
+import '@sub/scss/index.scss';
 import './scss/index.scss';
 import IconSVG from '@sub/static/image/icon.svg';
 import IconImg from '@sub/static/image/icon.png';
