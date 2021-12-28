@@ -2,4 +2,4 @@
 . "$(dirname "$0")/_/husky.sh"
 
 pnpm run lint
-npx stylelint '**/*.{css,scss}'
+pnpm run stylelint
