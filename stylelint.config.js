@@ -47,10 +47,10 @@ module.exports = {
     'scss/dollar-variable-colon-space-after': 'always-single-line',
     'scss/at-import-partial-extension': 'always',
     'string-quotes': 'single',
+    'block-no-empty': null,
     'scss/dollar-variable-pattern': /[a-zA-Z][0-9]?/,
-    'at-rule-empty-line-before': ['always', {
-      except: ['after-same-name'],
-    }],
+    'at-rule-empty-line-before': null,
+    'declaration-empty-line-before': 'never',
     'rule-empty-line-before': ['always', {
       ignore: ['after-comment', 'first-nested', 'inside-block'],
     }],
@@ -59,5 +59,7 @@ module.exports = {
       ignore: ['after-comment', 'stylelint-commands'],
       ignoreComments: ['/^-webkit-/'],
     }],
+    'color-function-notation': 'legacy',
+    'no-descending-specificity': null,
   },
 };
