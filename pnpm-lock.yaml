@@ -3,6 +3,7 @@ lockfileVersion: 5.3
 specifiers:
   '@emotion/react': ^11.7.1
   '@emotion/styled': ^11.6.0
+  '@fontsource/open-sans': ^4.5.2
   '@fontsource/ubuntu': ^4.5.0
   '@fontsource/ubuntu-mono': ^4.5.0
   '@mui/icons-material': ^5.2.5
@@ -109,6 +110,7 @@ specifiers:
 dependencies:
   '@emotion/react': 11.7.1_ea3887911029b0a85845a8dccc2a08f6
   '@emotion/styled': 11.6.0_ee7d8e44233763bcc162cfc3cfc4da58
+  '@fontsource/open-sans': 4.5.2
   '@fontsource/ubuntu': 4.5.0
   '@fontsource/ubuntu-mono': 4.5.0
   '@mui/icons-material': 5.2.5_7e67ba27e4b25e9c0fc1607adce43f70
@@ -788,6 +790,10 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /@fontsource/open-sans/4.5.2:
+    resolution: {integrity: sha512-aDQrW8s0KslG2aKb9nM5R6fiQR9iPomqWXf6iZCC30qv/UFlSY14SppodA3rE//+w37EqsJjyUq3BSEYzLdisg==}
+    dev: false
 
   /@fontsource/ubuntu-mono/4.5.0:
     resolution: {integrity: sha512-Yb+/jh9MUp56hZZOVBO++3J5Jg/V8XG5aDk4ef0hGlsA2IlVsDpGNr1JHBRqAQ/rNFcJuJHGtGr2cdq+TBCX9w==}
